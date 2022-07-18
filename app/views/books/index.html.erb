@@ -1,0 +1,33 @@
+<%= link_to "Create New Tags", new_tag_path, class: "btn btn-dark my-2 mx-2" %>
+<%= link_to "Assign Tags to books", books_assigntag_path, class: "btn btn-dark my-2" %>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Books</th>
+        <th scope="col">Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @books.each do |book| %>
+        <td><%= book.title%></td>
+        <td>
+          <% book.tags.each do |tag| %>
+          <button class="btn-primary"><%=tag.name%></button>
+          <% end %>
+        </td>
+        
+        <td><%= link_to "Show", book_path(book) %></td>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+        <td> 
+            <%= link_to "Destroy", book_path(book), data: {
+                turbo_method: :delete,
+                turbo_confirm: "1 bar phr soch lo?"
+              } %>
+        </td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>

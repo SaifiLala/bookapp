@@ -1,0 +1,13 @@
+<%= form_with model: @tag do |form| %>
+  <div class="mx-3">
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @tag.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="my-2 mx-4">
+    <%= form.submit %>
+  </div>
+<% end %>

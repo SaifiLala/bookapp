@@ -1,0 +1,9 @@
+<h1>New tags</h1>
+<div class="my-4">
+  <%=  form_tag(assign_tags_path, method: :post) do %>
+    <%= collection_select :book, :id, current_author.books.all.order('title ASC'), :id, :title,{include_blank: 'Select Book'} %>
+    <%= collection_select :tag, :id, Tag.all.order('name ASC'), :id, :name,{include_blank: 'Select Tag'} %>
+    <%= submit_tag 'Assign Tag' , class: "btn btn-dark select" %>
+  <% end %>
+  
+</div>
