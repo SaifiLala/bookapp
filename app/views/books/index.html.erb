@@ -10,7 +10,8 @@
     </thead>
     <tbody>
       <tr>
-        <% @books.each do |book| %>
+        <% @books.each_wit_index do |book| %>
+        <td><%= index + 1%></td>
         <td><%= book.title%></td>
         <td>
           <% book.tags.each do |tag| %>

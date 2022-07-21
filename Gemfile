@@ -72,3 +72,8 @@ group :test do
 end
 gem 'pry-rails'
 gem "devise", "~> 4.8"
+gem "active_model_serializers"
+
+group :development, :test do
+  gem 'rspec-rails'
+end
